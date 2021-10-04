@@ -1,0 +1,37 @@
+.ipynb_checkpoints
+gran-dag/data/**/*.npy
+__pycache__/
+gran-dag/exp
+probabilistic_dag_learning/experiments/results/*
+build/
+
+.idea
+
+# Byte-compiled / optimized / DLL files
+*__pycache__/*
+__pycache__
+*.py[cod]
+*$py.class
+*.pyc
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.fdb_latexmk
+*.gz
+*.bbl
+*.bcf
+*.blg
+*.xml
+*.yml
+*.pdf
