@@ -1,5 +1,14 @@
 # Differentiable DAG Sampling
 
+
+This repository presents the models of the paper:
+
+[Differentiable DAG Sampling](https://openreview.net/pdf?id=9wOQOgNe-w)<br>
+Bertrand Charpentier, Simon Kibler, Stephan Günnemann<br>
+International Conference on Learning Representations (ICLR), 2022.
+
+[[Paper](https://openreview.net/pdf?id=9wOQOgNe-w)|Video (Coming soon !)]
+
 ## Requirements
 
 To install requirements:
