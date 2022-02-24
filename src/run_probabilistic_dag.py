@@ -43,7 +43,7 @@ def run(
 
         # Training parameters
         directory_results,  # Path to save resutls. string
-        max_epochs,  # Maximum number of epochs for training
+        max_epochs,  # Maximum number of epochs for training. int
         patience,  # Patience for early stopping. int
         frequency,  # Frequency for early stopping test. int
         batch_size,  # Batch size. int
@@ -94,11 +94,6 @@ def run(
                                  initial_adj=None,
                                  lr=lr,
                                  seed=seed_model)
-    elif order_type=='iterative':
-        model = IterativeProbabilisticDAG(n_nodes=input_dim,
-                                          initial_adj=None,
-                                          lr=lr,
-                                          seed=seed_model)
     else:
         raise NotImplementedError
     full_config_dict = {'seed_dataset': seed_dataset,

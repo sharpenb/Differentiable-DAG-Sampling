@@ -22,10 +22,13 @@ class ProbabilisticDAG(nn.Module):
         Args:
             n_nodes (int): Number of nodes
             temperature (float, optional): Temperature parameter for order sampling. Defaults to 1.0.
-            seed (int, optional): Random seed. Defaults to 0.
             hard (bool, optional): If True output hard DAG. Defaults to True.
+            order_type (string, optional): Type of differentiable sorting. Defaults to 'sinkhorn'.
+            noise_factor (float, optional): Noise factor for Sinkhorn sorting. Defaults to 1.0.
             initial_adj (torch.tensor, optional): Initial binary adjecency matrix from e.g. PNS.
                 Edges with value 0 will not be learnt in further process Defaults to None.
+            lr (float, optional): Learning rate. Defaults to 1e-3.
+            seed (int, optional): Random seed. Defaults to 0.
         """
         super().__init__()
 

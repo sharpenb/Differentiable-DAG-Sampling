@@ -40,23 +40,23 @@ def run(
         # Architecture parameters
         seed_model,  # Seed to init model. int
         directory_model,  # Path to save model. string
-        ma_hidden_dims,
-        ma_architecture,
-        ma_fast,
-        pd_initial_adj,
-        pd_temperature,  # Temperature for differentiable sorting. List of ints
-        pd_hard,  # Hard or soft sorting. List of ints
-        pd_order_type,  # Type of differentiable sorting. List of ints
-        pd_noise_factor,  # Noise factor for Sinkhorn sorting. List of ints
+        ma_hidden_dims,  # Hidden dimensions. list of ints
+        ma_architecture,    # Encoder architecture name. string
+        ma_fast,  # Use fast masked autoencoder implementation. Boolean
+        pd_initial_adj,  # If 'Learned', the adjacency matrix is learned. Otherwise 'GT' (Ground Truth) or 'RGT' (Reverse Ground Truth). string
+        pd_temperature,  # Temperature for differentiable sorting. int
+        pd_hard,  # Hard or soft sorting. boolean
+        pd_order_type,  # Type of differentiable sorting. string
+        pd_noise_factor,  # Noise factor for Sinkhorn sorting. int
 
         # Training parameters
         directory_results,  # Path to save results. string
-        max_epochs,  # Maximum number of epochs for training
+        max_epochs,  # Maximum number of epochs for training. int
         patience,  # Patience for early stopping. int
         frequency,  # Frequency for early stopping test. int
         batch_size,  # Batch size. int
-        ma_lr,  # Learning rate. float
-        pd_lr,  # Learning rate. float
+        ma_lr,  # Learning rate for mask encoder. float
+        pd_lr,  # Learning rate proabilistic model. float
         loss,  # Loss name. string
         regr,  # Regularization factor in Bayesian loss. float
         prior_p):  # Prior edge probability. float
@@ -102,8 +102,6 @@ def run(
         pd_initial_adjacency = true_dag_adj
     elif pd_initial_adj == 'RGT':
         pd_initial_adjacency = true_dag_adj.T
-    elif pd_initial_adj == 'Random':
-        pd_initial_adjacency = torch.rand_like(true_dag_adj)  # TODO make valid random DAG
     elif pd_initial_adj == 'Learned':
         pd_initial_adjacency = None
 

@@ -22,16 +22,16 @@ class ProbabilisticDAGAutoencoder(nn.Module):
 
                  # Mask autoencoder parameters
                  ma_hidden_dims=[64, 64, 64],  # Hidden dimensions. list of ints
-                 ma_architecture='linear',  # Encoder architecture name. int
+                 ma_architecture='linear',  # Encoder architecture name. string
                  ma_lr=1e-3,  # Learning rate. float
                  ma_fast=False,  # Use fast masked autoencoder implementation. Boolean
 
                  # Probabilistic dag parameters
-                 pd_temperature=1.0,
-                 pd_hard=True,
-                 pd_order_type='sinkhorn',
-                 pd_noise_factor=1.0,
-                 pd_initial_adj=None,
+                 pd_temperature=1.0,  # Temperature for differentiable sorting. int
+                 pd_hard=True,  # Hard or soft sorting. boolean
+                 pd_order_type='sinkhorn',  # Type of differentiable sorting. string
+                 pd_noise_factor=1.0,  # Noise factor for Sinkhorn sorting. int
+                 pd_initial_adj=None,  # If None, the adjacency matrix is learned.
                  pd_lr=1e-3):  # Random seed for init. int
         super().__init__()
 
@@ -94,8 +94,6 @@ class ProbabilisticDAGAutoencoder(nn.Module):
         if self.regr > 0:
             kl_loss = torch.nn.KLDivLoss(reduction='mean')
             regularizer = kl_loss(self.probabilistic_dag.edge_log_params, self.prior_p * torch.ones_like(self.probabilistic_dag.edge_log_params))
-            # p_log = F.logsigmoid(torch.stack((self.probabilistic_dag.edge_log_params, -self.probabilistic_dag.edge_log_params)))
-            # regularizer = kl_loss(self.probabilistic_dag.edge_log_params, self.prior_p * torch.ones_like(self.probabilistic_dag.edge_log_params))
             ELBO_loss = ELBO_loss + self.regr * regularizer
 
         return ELBO_loss
