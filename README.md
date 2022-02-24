@@ -42,3 +42,14 @@ You can find the datasets at the following anonymous [link](https://ln5.sync.com
 ## Experiments
 
 You can find a notebook to run DP-DAG and VI-DP-DAG in the folder `src/notebooks`.
+
+## Cite
+Please cite our paper if you use the model or this code in your own work:
+
+```
+@incollection{dpdag,
+title = {Differentiable DAG Sampling},
+author = {Charpentier, Bertrand, Kibler, Simon and G\"{u}nnemann, Stephan},
+booktitle = {International Conference on Learning Representations 10},
+year = {2022},
+}
