@@ -7,7 +7,7 @@ This repository presents the models of the paper:
 Bertrand Charpentier, Simon Kibler, Stephan Günnemann<br>
 International Conference on Learning Representations (ICLR), 2022.
 
-[[Paper](https://openreview.net/pdf?id=9wOQOgNe-w)|Video (Coming soon !)]
+[[Paper](https://openreview.net/pdf?id=9wOQOgNe-w)|[Video](https://youtu.be/JiS7wJle2Ao)]
 
 ## Requirements
 
